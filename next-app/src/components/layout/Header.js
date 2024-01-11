@@ -1,7 +1,13 @@
 import Link from "next/link";
 import LoginBtn from "./LoginBtn";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../../pages/api/auth/[...nextauth]";
+import LogOutBtn from "./LogoutBtn";
 
-export default function Header() {
+export default async function Header() {
+    let session = await getServerSession(authOptions);
+    console.log(session, "session");
+
     return (
         <header id="header" role="banner">
             <div className="left">
@@ -24,12 +30,23 @@ export default function Header() {
             </div>
             <div className="right">
                 <ul>
-                    <li>
-                        <LoginBtn />
-                    </li>
-                    <li>
-                        <Link href="/Join">회원가입</Link>
-                    </li>
+                    {session ? (
+                        <>
+                            <li>{session.user.name} 님 환영합니다</li>
+                            <li>
+                                <LogOutBtn />
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li>
+                                <LoginBtn />
+                            </li>
+                            <li>
+                                <Link href="/register">회원가입</Link>
+                            </li>
+                        </>
+                    )}
                 </ul>
             </div>
         </header>

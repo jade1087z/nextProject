@@ -2,7 +2,7 @@ import { MongoClient } from "mongodb";
 //e4b7234adff27ebcae4c
 //53287402922ea32eb1e23b230147c64939a62bdd
 const url =
-    "mongodb+srv://imdoob:zz3125@cluster0.ic31wpl.mongodb.net/?retryWrites=true&w=majority";
+    "mongodb+srv://imdoob:zz3125@cluster0.ic31wpl.mongodb.net/forum?retryWrites=true&w=majority";
 
 let connectDB;
 

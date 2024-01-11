@@ -1,3 +1,3 @@
 {
-    "emmit.includeLanguages": {"javascript": "javascriptreact"}
+    "emmet.includeLanguages": {"javascript": "javascriptreact"}
 }
